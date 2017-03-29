@@ -4,7 +4,8 @@
   */
 
 //define your token
-define("TOKEN", "weixin");
+define("TOKEN", getenv('TOKEN'));
+
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->valid();
 
@@ -72,6 +73,12 @@ class wechatCallbackapiTest
         $nonce = $_GET["nonce"];
 
 		$token = TOKEN;
+
+		// echo "signature is $signature";
+		// echo "timestamp is $timestamp";
+		// echo "nonce is $nonce";
+		// echo "token is $token";
+
 		$tmpArr = array($token, $timestamp, $nonce);
         // use SORT_STRING rule
 		sort($tmpArr, SORT_STRING);
